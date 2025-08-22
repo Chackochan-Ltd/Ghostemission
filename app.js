@@ -178,6 +178,27 @@ function setupEventListeners() {
         infrastructureInfo.style.display = 'block';
         renderMethaneMap();
     });
+    
+    // Ghost Emissions Interactive controls
+    document.getElementById('co2-btn').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('ch4-btn').classList.remove('active');
+        // Update heatmap for CO2 here
+    });
+    document.getElementById('ch4-btn').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('co2-btn').classList.remove('active');
+        // Update heatmap for CH4 here
+    });
+    document.getElementById('region-select').addEventListener('change', function() {
+        // Update heatmap for selected region here
+    });
+    document.getElementById('time-start').addEventListener('change', function() {
+        // Update heatmap for selected time range
+    });
+    document.getElementById('time-end').addEventListener('change', function() {
+        // Update heatmap for selected time range
+    });
 }
 
 function getColorForConcentration(concentration) {
