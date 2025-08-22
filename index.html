@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Emissions: Lavasa's Silent Climate Cost</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Ghost Emissions: Lavasa's Silent Climate Cost</h1>
+                <p class="hero-subtitle">Visualizing the Unseen Climate Impact of Abandoned Urban Projects</p>
+                <p class="hero-description">
+                    Abandoned infrastructure like Lavasa hill station continues to leak methane and other greenhouse gases 
+                    that go untracked by traditional climate models. These "ghost emissions" represent a hidden climate cost 
+                    that demands urgent attention and better monitoring systems.
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="emission-indicator">
+                    <div class="emission-pulse"></div>
+                    <span class="emission-value" id="current-emission">2,499 ppb</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Section -->
+    <section class="metrics-section">
+        <div class="container">
+            <h2>Impact Overview</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">🏭</div>
+                    <div class="metric-value">2.8 MT</div>
+                    <div class="metric-label">CO₂ equivalent per year</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🚗</div>
+                    <div class="metric-value">600</div>
+                    <div class="metric-label">Cars equivalent</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🏠</div>
+                    <div class="metric-value">85</div>
+                    <div class="metric-label">Household equivalent</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">📍</div>
+                    <div class="metric-value">2,499</div>
+                    <div class="metric-label">Latest concentration (ppb)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methane Visualization Section -->
+    <section class="visualization-section">
+        <div class="container">
+            <h2>Methane Plume Distribution</h2>
+            <p>Interactive heatmap showing methane concentration across the Lavasa area</p>
+            
+            <div class="controls">
+                <div class="time-controls">
+                    <label for="year-slider">Year: <span id="selected-year">2024</span></label>
+                    <input type="range" id="year-slider" min="2020" max="2025" value="2024" step="1">
+                </div>
+                <div class="view-toggle">
+                    <button id="heatmap-btn" class="btn btn--primary active">Heatmap View</button>
+                    <button id="infrastructure-btn" class="btn btn--secondary">Infrastructure Overlay</button>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <canvas id="methane-map" width="800" height="500"></canvas>
+                <div class="map-legend">
+                    <h4>Methane Concentration (ppb)</h4>
+                    <div class="legend-scale">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #1e40af;"></div>
+                            <span>Low (&lt;1900)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #3b82f6;"></div>
+                            <span>Medium (1900-2200)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #fbbf24;"></div>
+                            <span>High (2200-2500)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #f97316;"></div>
+                            <span>Very High (&gt;2500)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="infrastructure-info" id="infrastructure-info" style="display: none;">
+                <h4>Infrastructure Sites</h4>
+                <div class="infrastructure-grid" id="infrastructure-grid">
+                    <!-- Infrastructure sites will be populated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time Series Analysis -->
+    <section class="timeseries-section">
+        <div class="container">
+            <h2>Methane Trends Over Time</h2>
+            <p>Seasonal patterns and long-term emission trends from 2020-2025</p>
+            
+            <div class="chart-container" style="position: relative; height: 400px;">
+                <canvas id="timeseries-chart"></canvas>
+            </div>
+            
+            <div class="trend-insights">
+                <div class="insight-card">
+                    <h4>Seasonal Pattern</h4>
+                    <p>Peak emissions during monsoon months (June-September) due to increased microbial activity</p>
+                </div>
+                <div class="insight-card">
+                    <h4>Rising Trend</h4>
+                    <p>Overall 8.3% increase in baseline emissions from 2020 to 2025</p>
+                </div>
+                <div class="insight-card">
+                    <h4>Hot Spots</h4>
+                    <p>Sewage treatment areas show 40% higher concentrations than baseline</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emission Sources -->
+    <section class="sources-section">
+        <div class="container">
+            <h2>Emission Sources Breakdown</h2>
+            <div class="sources-content">
+                <div class="chart-container" style="position: relative; height: 400px; width: 50%;">
+                    <canvas id="sources-chart"></canvas>
+                </div>
+                <div class="sources-details">
+                    <div class="source-item">
+                        <div class="source-color" style="background: #1FB8CD;"></div>
+                        <div class="source-info">
+                            <h4>Decomposing Organic Matter (35%)</h4>
+                            <p>Vegetation and waste material left in abandoned areas</p>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-color" style="background: #FFC185;"></div>
+                        <div class="source-info">
+                            <h4>Faulty Sewage Systems (25%)</h4>
+                            <p>Damaged treatment plants and broken sewage lines</p>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-color" style="background: #B4413C;"></div>
+                        <div class="source-info">
+                            <h4>Disturbed Soil (20%)</h4>
+                            <p>Construction activities exposing methane-rich soil layers</p>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-color" style="background: #ECEBD5;"></div>
+                        <div class="source-info">
+                            <h4>Abandoned Infrastructure (15%)</h4>
+                            <p>Buildings, roads, and facilities left to decay</p>
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-color" style="background: #5D878F;"></div>
+                        <div class="source-info">
+                            <h4>Natural Seepage (5%)</h4>
+                            <p>Background geological methane emissions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section class="narrative-section">
+        <div class="container">
+            <h2>Understanding Ghost Emissions</h2>
+            <div class="narrative-grid">
+                <div class="narrative-card">
+                    <h3>What Are Ghost Emissions?</h3>
+                    <p>Ghost emissions are greenhouse gas leaks from abandoned or incomplete infrastructure that continue emitting long after projects are halted. Unlike operational facilities, these sources are rarely monitored or accounted for in climate inventories.</p>
+                </div>
+                <div class="narrative-card">
+                    <h3>The Lavasa Case Study</h3>
+                    <p>Lavasa hill station, once envisioned as India's first planned hill city, was abandoned mid-construction. The incomplete sewage systems, disturbed soil, and decaying organic matter create perfect conditions for methane generation.</p>
+                </div>
+                <div class="narrative-card">
+                    <h3>Hidden Climate Impact</h3>
+                    <p>Methane is 28 times more potent than CO₂ over a 100-year period. The 2.8 MT of CO₂-equivalent emissions from Lavasa alone equal the annual emissions of 600 cars - completely invisible to current monitoring systems.</p>
+                </div>
+                <div class="narrative-card">
+                    <h3>The Bigger Picture</h3>
+                    <p>Thousands of abandoned developments worldwide could be contributing significantly to global methane emissions. Better satellite monitoring and policy frameworks are needed to track and mitigate these "ghost" sources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section">
+        <div class="container">
+            <h2>Data Sources & Methodology</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Satellite Data</h3>
+                    <ul>
+                        <li><strong>NASA MethaneSAT:</strong> High-resolution methane concentration mapping</li>
+                        <li><strong>EMIT:</strong> Earth surface mineral dust source investigation</li>
+                        <li><strong>OCO-2:</strong> Orbiting Carbon Observatory data</li>
+                        <li><strong>Sentinel-2:</strong> Optical imagery for infrastructure mapping</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Analysis Tools</h3>
+                    <ul>
+                        <li><strong>Google Earth Engine:</strong> Planetary-scale geospatial analysis</li>
+                        <li><strong>Python:</strong> Data processing and statistical analysis</li>
+                        <li><strong>QGIS:</strong> Geographic information system mapping</li>
+                        <li><strong>Chart.js:</strong> Interactive data visualization</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Data Processing</h3>
+                    <ul>
+                        <li><strong>Temporal Analysis:</strong> 5-year trend analysis (2020-2025)</li>
+                        <li><strong>Spatial Interpolation:</strong> Grid-based concentration mapping</li>
+                        <li><strong>Statistical Modeling:</strong> Emission source attribution</li>
+                        <li><strong>Validation:</strong> Ground-truth data comparison</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="call-to-action">
+                <h3>Next Steps</h3>
+                <p>This analysis demonstrates the urgent need for systematic monitoring of abandoned infrastructure. We recommend:</p>
+                <ul>
+                    <li>Mandatory pre-abandonment environmental impact assessments</li>
+                    <li>Satellite monitoring programs for known abandoned sites</li>
+                    <li>Policy frameworks requiring cleanup of emission sources</li>
+                    <li>Integration of ghost emissions in national climate inventories</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="tooltip"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
