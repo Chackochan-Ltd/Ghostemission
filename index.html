@@ -33,6 +33,57 @@
         </div>
     </section>
 
+    <!-- Ghost Emissions Interactive Section -->
+    <section class="ghost-emissions-interactive">
+        <div class="interactive-container">
+            <div class="interactive-controls">
+                <h2>Ghost Emissions</h2>
+                <div class="form-group">
+                    <label for="region-select">Region</label>
+                    <select id="region-select">
+                        <option value="Lavasa">Lavasa</option>
+                        <!-- Add more regions as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gas-type">Gas Type</label>
+                    <div class="gas-type-buttons">
+                        <button id="co2-btn" class="btn-gas-type">CO₂</button>
+                        <button id="ch4-btn" class="btn-gas-type active">CH₄</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Time Range</label>
+                    <div class="timerange-select">
+                        <input type="number" id="time-start" min="2015" max="2025" value="2015" class="timerange-input"> 
+                        <span class="timerange-separator">–</span>
+                        <input type="number" id="time-end" min="2015" max="2025" value="2025" class="timerange-input">
+                    </div>
+                </div>
+            </div>
+            <div class="interactive-map">
+                <div class="heatmap-area" id="heatmap-area">
+                    <!-- Place for heatmap rendering -->
+                    <div class="methane-tooltip" id="methane-tooltip" style="display: block; position: absolute; top: 80px; left: 160px;">
+                        Methane spike detected on Sept 23, 2021
+                    </div>
+                    <!-- You can use a canvas for drawing heatmap or an img placeholder -->
+                    <canvas id="interactive-heatmap" width="400" height="400"></canvas>
+                    <div class="heatmap-legend">
+                        <h4>Legend</h4>
+                        <div class="legend-bar">
+                            <div class="legend-gradient"></div>
+                            <div class="legend-labels">
+                                <span>HIGH</span>
+                                <span>LOW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Key Metrics Section -->
     <section class="metrics-section">
         <div class="container">
